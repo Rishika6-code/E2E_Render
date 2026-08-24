@@ -98,13 +98,18 @@ def predict():
         # --------------------------------
 
         model_input = np.expand_dims(file_array, axis=0)
+        print("Model input shape:", model_input.shape)
+        print("Prediction started")  
 
         # --------------------------------
         # Prediction
         # --------------------------------
 
-        preds = model.predict(model_input)[0]
+       
+        preds = model.predict(model_input, verbose=0)[0]
 
+        print("Prediction finished")
+        print("Predictions:", preds)
         i = np.argmax(preds)
 
         label = CLASSES[i]
