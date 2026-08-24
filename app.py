@@ -1,7 +1,8 @@
 import base64
 import numpy as np
 from io import BytesIO
-
+# import os
+# os.environ["TF_USE_LEGACY_KERAS"] = "1"
 from PIL import Image
 from flask import Flask, render_template, request
 from tensorflow.keras.models import load_model
@@ -14,13 +15,15 @@ from tensorflow.keras.models import load_model
 IMG_SHAPE = (224, 224)
 CLASSES = ["Modern", "Old"]
 
+print("loading model.....")
 model = load_model("fine_tuned_house.keras")
+print("loaded model")
 
 
 # -----------------------------
 # Flask application
 # -----------------------------
-
+ 
 app = Flask(__name__)
 
 
