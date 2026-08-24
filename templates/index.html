@@ -3,83 +3,50 @@
 
 <head>
     <title>End to End Project</title>
-
-    <link rel="stylesheet"
-          type="text/css"
-          href="/static/styles/style.css">
 </head>
-
 <body>
-
 <center>
-
     <div class="background"></div>
-
     <div class="form">
-
         <h1>Check how modern is your property!</h1>
-
         <br>
-
         <form action="/predict-interior"
               method="post"
               enctype="multipart/form-data">
-
             <h2>Upload a photo of any room in your house.</h2>
-
             <input
                 id="first"
                 name="img"
                 type="file"
                 accept="image/*"
                 required>
-
             <input type="submit">
-
         </form>
-
-
         {% if user_image %}
-
             <br>
-
             <h2>Uploaded Image</h2>
-
             <img
                 src="{{ user_image }}"
                 width="400"
                 alt="Uploaded Image">
-
         {% endif %}
-
-
         {% if pred_output %}
-
             <br>
-
             <h2>Prediction Result</h2>
-
             <h3>
                 Your property is:
                 {{ pred_output.label }}
             </h3>
-
             <h3>
                 Probability:
                 {{ pred_output.probability }}%
             </h3>
-
             <p>
                 Image shape:
                 {{ pred_output.img_size }}
             </p>
-
         {% endif %}
-
     </div>
-
 </center>
-
 </body>
-
 </html>
