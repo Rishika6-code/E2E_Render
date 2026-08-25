@@ -43,6 +43,8 @@ def sayhello():
 @app.route("/predict-interior", methods=["POST"])
 def predict():
 
+    print(" PREDICTION ROUTE HIT", flush=True)
+
     # Check whether an image was uploaded
     if "img" not in request.files:
         return "No image uploaded", 400
